@@ -34,11 +34,12 @@ function handleClick(event) {
 
   const originalImageURL = event.target.dataset.source;
 
-  const lightBox = basicLightbox.create(
-    `<img src="${originalImageURL}" width="800" height="600"/>`
-  );
-
-  lightBox.show();
+  const instance = basicLightbox.create(`
+    <div class="modal">
+    <img src="${originalImageURL}" width="800" height="600"/>
+    </div>
+    `);
+  instance.show();
 
   const closeLightBox = (event) => {
     if (event.key === "Escape") {
