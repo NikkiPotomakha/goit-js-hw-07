@@ -10,11 +10,16 @@ function createMarkup(arr) {
   return arr
     .map(
       ({ preview, original, description }) => `
-        <li class="gallery_item">
-          <a class="gallery_link" href="${original}">
-            <img class="gallery_image" src="${preview}" data-source="${original}" alt="${description}" />
-          </a>
-        </li>
+        <li class="gallery__item">
+  <a class="gallery__link" href="${original}">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</li>
       `
     )
     .join("");
@@ -22,15 +27,17 @@ function createMarkup(arr) {
 
 function handleClick(event) {
   event.preventDefault();
-  if (!event.target.classList.contains("gallery_image")) {
+
+  if (!event.target.classList.contains("gallery__image")) {
     return;
   }
 
   const originalImageURL = event.target.dataset.source;
 
-  const lightBox = basicLightBox.create(
-    `<img src="${originalImageURL}" width="800" height="600" />`
+  const lightBox = basicLightbox.create(
+    `<img src="${originalImageURL}" width="800" height="600"/>`
   );
+
   lightBox.show();
 
   const closeLightBox = (event) => {
