@@ -7,16 +7,16 @@ function createMarkup(arr) {
   return arr
     .map(
       ({ preview, original, description }) => `
-    <li class="gallery_item">
-    <a class="gallery_link" href="${original}">
-    <img class="gallery_image" src="${preview}" alt="${description}" />
-    </a>
-    </li>
+    <li class="gallery__item">
+   <a class="gallery__link" href="${original}">
+      <img class="gallery__image" src="${preview}" alt="${description}" />
+   </a>
+</li>
     `
     )
     .join("");
 }
-const lightBox = new SimpleLightbox(".gallery a", {
+const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
 });
