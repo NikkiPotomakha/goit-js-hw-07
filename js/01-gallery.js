@@ -41,11 +41,11 @@ function handleClick(event) {
     `);
   instance.show();
 
-  const closeLightBox = (event) => {
+  const closeInstance = (event) => {
     if (event.key === "Escape") {
-      lightBox.close();
-      document.removeEventListener("keydown", closeLightBox);
+      instance.close();
+      document.removeEventListener("keydown", closeInstance);
     }
   };
-  document.addEventListener("keydown", closeLightBox);
+  document.addEventListener("keydown", closeInstance);
 }
